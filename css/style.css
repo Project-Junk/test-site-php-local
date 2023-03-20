@@ -74,14 +74,14 @@
     box-shadow: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 700px) {
     .header-blue .navbar-nav .nav-link {
         padding-left: .7rem;
         padding-right: .7rem;
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 900px) {
     .header-blue .navbar-nav .nav-link {
         padding-left: 1.2rem;
         padding-right: 1.2rem;
@@ -234,5 +234,12 @@
 .device {
 
     padding-left: 100px;
+
+}
+.sup{
+
+        padding-left: .7rem;
+        padding-right: .7rem;
+    
 
 }
