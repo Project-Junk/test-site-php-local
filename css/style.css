@@ -236,10 +236,41 @@
     padding-left: 100px;
 
 }
-.sup{
 
-        padding-left: .7rem;
-        padding-right: .7rem;
-    
+.sup {
+
+    padding-left: .7rem;
+    padding-right: .7rem;
+
+
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.px-2 {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.morecenter {
+
+    width: 20%;
+    height: 30px;
+    padding: 100px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #2e3440;
+    color: #e5e9f0;
+    text-transform: capitalize;
+    line-height: 1.5px;
+    text-align: center;
+    font-size: 17px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 
 }

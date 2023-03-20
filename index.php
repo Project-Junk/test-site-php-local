@@ -19,16 +19,12 @@
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav">
                             <li class="nav-item" role="presentation"><a class="nav-link active" href="inputdata.php">Enquiry</a></li>
-                           
-                            <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Service </a>
-                                <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="query2.php">Service Enquiry</a></div>
-                            </li>
+
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="services.php">Service Types</a></li>
                         </ul>
-                        <form class="form-inline mr-auto" target="_self">
-                            <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field"></div>
-                        </form>
+
                     </div>
-                    
+
                     <div class="device"><img src="https://www.metamintindia.com/assets/userassets/images/logo/main_logo.svg" class="device">
 
 
@@ -46,7 +42,7 @@
             </div>
         </div>
     </div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
