@@ -18,7 +18,7 @@
                 <div class="container"><a class="navbar-brand" href="#">Meta Mint</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav">
-                            <li class="nav-item" role="presentation"><a class="nav-link active" href="inputdata.php">Enquiry</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="enquiry.php">Enquiry</a></li>
 
                             <li class="nav-item" role="presentation"><a class="nav-link active" href="services.php">Service Types</a></li>
                         </ul>

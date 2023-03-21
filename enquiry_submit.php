@@ -22,15 +22,21 @@
         }
 
         // Taking all 5 values from the form data(input)
-        $lol = "SELECT COUNT(service_type_id) FROM tbl_service;";
-        $id = $lol++;
-        $name =  $_REQUEST['service_type_name'];
-        $priority = $_REQUEST['priority'];
+        $lol = "SELECT COUNT(enquiryid) FROM tbl_enquiry;";
+        $lol++;
+        $name =  $_REQUEST['enquiry_person'];
+        $orgname =  $_REQUEST['org_name'];
+        $mobile = $_REQUEST['mobile_no'];
+        $remarks = $_REQUEST['remarks'];
+        $serviceid = "Select COUNT(service_type_id) FROM tbl_service; ";
+
 
 
         // Performing insert query execution
         // here our table name is college
-        $sql = "INSERT INTO tbl_service  VALUES ('$id', '$name', '', '$priority')";
+        $sql = "INSERT INTO tbl_enquiry  VALUES ('$lol', '$name',
+            '$orgname','$mobile', '$remarks', '$serviceid')";
+
         if (mysqli_query($conn, $sql)) {
             header('Location: index.php');
         } else {

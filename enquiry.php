@@ -25,7 +25,8 @@
 
             </tr>
         </thead>
-
+        <a style="margin-left:62%; margin-top:-110px;" class='btn btn-primary mb-4' href='enquiry_form.php'>Add Enquiry</a>
+        <a style="margin-left:71%; margin-top:-158px; background-color:#04aa6d; border-color:#04aa6d;" class='btn btn-primary mb-4' href='index.php'>Go Back</a>
         <tbody>
             <?php
             $servername = "localhost";

@@ -17,7 +17,7 @@
 <body style="margin: 10px; ">
     <br>
     <table class="table">
-        
+
         <thead>
             <tr>
                 <th>service_type_id</th>
@@ -56,7 +56,7 @@
                 echo "<tr>
                     <td>" . $row["service_type_id"] . "</td>
                     <td>" . $row["service_type_name"] . "</td>
-                    <td> </td>
+                    <td> <a cl </td>
                     <td>" . $row["priority"] . "</td>
                     <td>
                         <a class='btn btn-primary btn-sm' href='update'>Update</a>
