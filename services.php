@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/slider.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
@@ -53,12 +54,19 @@
 
             // read data of each row
             while ($row = $result->fetch_assoc()) {
+                $status = ($row['service_status'] == 1) ? 'checked' : '';
+
                 echo "<tr>
                     <td>" . $row["service_type_id"] . "</td>
                     <td>" . $row["service_type_name"] . "</td>
-                    <td> <a cl </td>
-                    <td>" . $row["priority"] . "</td>
                     <td>
+                        <label class='switch'>
+                            <input type='checkbox' " . $status . ">
+                            <span class='slider round'></span>
+                        </label>
+                    </td>
+                    <td>" . $row["priority"] . "</td>
+                  <td>
                         <a class='btn btn-primary btn-sm' href='update'>Update</a>
                         <a class='btn btn-danger btn-sm' href='delete'>Delete</a>
                     </td>

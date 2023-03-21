@@ -38,7 +38,7 @@
             '$orgname','$mobile', '$remarks', '$serviceid')";
 
         if (mysqli_query($conn, $sql)) {
-            header('Location: index.php');
+            header('Location: enquiry.php');
         } else {
             echo "ERROR: Hush! Sorry $sql. "
                 . mysqli_error($conn);

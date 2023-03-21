@@ -32,7 +32,7 @@
         // here our table name is college
         $sql = "INSERT INTO tbl_service  VALUES ('$id', '$name', '', '$priority')";
         if (mysqli_query($conn, $sql)) {
-            header('Location: index.php');
+            header('Location: services.php');
         } else {
             echo "ERROR: Hush! Sorry $sql. "
                 . mysqli_error($conn);
