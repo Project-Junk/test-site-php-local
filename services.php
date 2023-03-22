@@ -8,6 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/slider.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 </head>
 
@@ -45,7 +47,7 @@
             }
 
             // read all row from database table
-            $sql = "SELECT * FROM tbl_service";
+            $sql = "SELECT * FROM tbl_service  ORDER BY priority ASC";
             $result = $connection->query($sql);
 
             if (!$result) {
@@ -67,16 +69,50 @@
                     </td>
                     <td>" . $row["priority"] . "</td>
                   <td>
-                        <a class='btn btn-primary btn-sm' href='update'>Update</a>
-                        <a class='btn btn-danger btn-sm' href='delete'>Delete</a>
+                        <a class='btn btn-primary btn-sm' href='service_update.php?id=" . $row['service_type_id'] . "'>Update </a>
+                        <a href='service_delete.php?id=" . $row['service_type_id'] . "' class='del-btn btn btn-danger btn-sm'>Delete</a>
+
                     </td>
                 </tr>";
             }
 
-            $connection->close();
+
+
+            ?>
+            <script>
+                $('.del-btn').on('click', function(e) {
+                    e.preventDefault();
+                    const href = $(this).attr('href')
+                    Swal.fire({
+                        title: 'Are you sure to delete?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.value) {
+                            document.location.href = href;
+
+                        }
+                    })
+                })
+
+                const flashdata = $('.flash-data').data('flashdata')
+                if (flashdata) {
+                    swal.fire({
+                        type: 'success',
+                        title: 'Record Deleted',
+                        text: 'Record has been deleted'
+                    })
+                }
+            </script>
+            <?php $connection->close();
             ?>
         </tbody>
     </table>
+
 </body>
 <!-- <button type="button" class="btn btn-primary" onclick="window.location.href='service_form.php';">Add Service</button> -->
 
