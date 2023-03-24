@@ -24,9 +24,9 @@
 
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" style="margin-top:-100px;">
                 <form action="services.php" class="ml-auto">
-                    <input type="submit" value="Go Back " class="btn btn-primary ml-auto">
+                    <input type="submit" value="Go Back " class="btn btn-primary ml-auto ">
                 </form>
 
                 <div class="col-md-12">
@@ -39,7 +39,8 @@
                                     <div id="form-message-success" class="mb-4">
                                         Your service has been updated, thank you!
                                     </div>
-                                    <form action="service_update.php" method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                    <form action="service_update.php?id=<?php $id = $_GET['id'];
+                                                                        echo $id ?> " method="POST" id="contactForm" name="contactForm" class="contactForm">
                                         <div class="row">
 
 
@@ -53,11 +54,13 @@
                                                 <div class="form-group">
                                                     <div class="row form-group ">
 
-                                                        <label class="form-check-label ml-3 mb-5" for="priority"> Service Priority</label>
+                                                        <label class="form-check-label ml-3 pd-5" for="priority"> Service Priority</label>
                                                         <div class="form-check form-check-inline ">
-                                                            <input class="form-control ml-3 mb-5" type="text" name="priority" id="priority" value="">
+                                                            <input class="form-control ml-3 " type="number" name="priority" id="priority" value="">
                                                             <label class="form-check-label" for="priority"></label>
+
                                                         </div>
+
 
 
 
@@ -66,6 +69,7 @@
                                                     </div>
 
                                                 </div>
+
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">

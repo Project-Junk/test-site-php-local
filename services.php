@@ -10,6 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 
 </head>
 
@@ -23,8 +26,8 @@
 
         <thead>
             <tr>
-                <th>service_type_id</th>
-                <th>service_type_name</th>
+                <th>Service ID</th>
+                <th>Service Name</th>
                 <th>status</th>
                 <th>priority</th>
 
@@ -57,28 +60,54 @@
             // read data of each row
             while ($row = $result->fetch_assoc()) {
                 $status = ($row['service_status'] == 1) ? 'checked' : '';
-
                 echo "<tr>
+
                     <td>" . $row["service_type_id"] . "</td>
                     <td>" . $row["service_type_name"] . "</td>
                     <td>
-                        <label class='switch'>
-                            <input type='checkbox' " . $status . ">
-                            <span class='slider round'></span>
+                       <label class='switch'>
+                        <input type='checkbox' class='slider' onclick=servicestatus(" . $row['service_type_id'] . ") id='" . $row['service_status'] . "' data-id='' " . $status . ">
+                        <span class='slider round'></span>
                         </label>
                     </td>
                     <td>" . $row["priority"] . "</td>
                   <td>
-                        <a class='btn btn-primary btn-sm' href='service_update.php?id=" . $row['service_type_id'] . "'>Update </a>
+                        <a href='service_update_form.php?id=" . $row['service_type_id'] . "' class=' btn btn-primary btn-sm'>Update</a>
                         <a href='service_delete.php?id=" . $row['service_type_id'] . "' class='del-btn btn btn-danger btn-sm'>Delete</a>
 
                     </td>
+
                 </tr>";
             }
 
 
 
+
+
             ?>
+            <script>
+                function servicestatus(id) {
+                    $.ajax({
+                        type: "POST",
+                        url: "service_status.php",
+                        data: {
+                            id: id,
+
+                        },
+                        success: function(data) {
+                            console.log(data)
+                        }
+                    });
+                }
+                $(document).ready(function() {
+                    $('.slider').click(function() {
+                        var id = $(this).attr('id');
+                        var serviceid = $(this).attr('serviceid');
+                        servicestatus(id, serviceid);
+                    });
+                });
+            </script>
+
             <script>
                 $('.del-btn').on('click', function(e) {
                     e.preventDefault();
