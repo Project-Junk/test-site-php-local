@@ -12,13 +12,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <h1>Services Available </h1>
 <a style="margin-left:62%; margin-top:-70px;" class='btn btn-primary mb-4' href='service_form.php'>Add Service</a>
-<a style="margin-left:70%; margin-top:-119px; background-color:#04aa6d; border-color:#04aa6d;" class='btn btn-primary mb-4' href='index.php'>Go Back</a>
+<a style="margin-left:70%; margin-top:-119px; background-color:#04aa6d; border-color:#04aa6d;" class='btn btn-primary mb-4' href='index.php'> <i class="fa fa-home"> Back</i></a>
+
 
 <body style="margin: 10px; ">
     <br>
