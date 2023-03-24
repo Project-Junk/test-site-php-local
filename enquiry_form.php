@@ -85,13 +85,13 @@
                                                                 $name = mysqli_real_escape_string($con, $_POST['service_type_name']);
 
                                                                 // Store the Category ID in a "id" variable
-                                                                $id = mysqli_real_escape_string($con, $_POST['service_status']);
+                                                               
 
                                                                 // Creating an insert query using SQL syntax and
                                                                 // storing it in a variable.
                                                                 $sql_insert =
-                                                                    "INSERT INTO `product`(`service_type_name`, `service_status`)
-            VALUES ('$name','$id')";
+                                                                    "INSERT INTO `product`(`service_type_name`)
+            VALUES ('$name')";
 
                                                                 // The following code attempts to execute the SQL query
                                                                 // if the query executes with no errors
@@ -108,7 +108,7 @@
 
 
                                                             <label class="label">Select the service</label>
-                                                            <select class="form-control" name="Category">
+                                                            <select class="form-control" name="service_type_name">
                                                                 <?php
                                                                 // use a while loop to fetch data
                                                                 // from the $all_categories variable

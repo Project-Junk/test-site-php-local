@@ -22,6 +22,7 @@
                 <th>Organisation</th>
                 <th>Mobile Number</th>
                 <th>Remarks</th>
+                <th>Service ID</th>
 
             </tr>
         </thead>
@@ -58,6 +59,7 @@
                     <td>" . $row["org_name"] . "</td>
                     <td>" . $row["mobile_no"] . "</td>
                     <td>" . $row["remarks"] . "</td>
+                    <td>" . $row["service_type_id"] . "</td>
                     <td>
                         <a class='btn btn-primary btn-sm' href='#'>Update</a>
                         <a class='btn btn-danger btn-sm' href='#'>Delete</a>

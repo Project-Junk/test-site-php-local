@@ -22,20 +22,27 @@
         }
 
         // Taking all 5 values from the form data(input)
-        $lol = "SELECT COUNT(enquiryid) FROM tbl_enquiry;";
-        $lol++;
+        $lol = $conn -> query("SELECT COUNT(enquiryid) FROM tbl_enquiry");
+        while ($row = $lol->fetch_assoc()) {
+            $lol2 = $row['COUNT(enquiryid)']."<br>";
+             
+          }
+        $lol2++;
         $name =  $_REQUEST['enquiry_person'];
         $orgname =  $_REQUEST['org_name'];
         $mobile = $_REQUEST['mobile_no'];
         $remarks = $_REQUEST['remarks'];
-        $serviceid = "Select COUNT(service_type_id) FROM tbl_service; ";
+        $servicename= $_REQUEST['service_type_name'];
+        $serviceid = $conn -> query("SELECT service_type_id FROM tbl_service WHERE service_type_name ='$servicename' ");
+        
+        
+        while ($row = $serviceid->fetch_assoc()) {
+            $serviceid2 = $row['service_type_id']."<br>";
+             
+          }
 
-
-
-        // Performing insert query execution
-        // here our table name is college
-        $sql = "INSERT INTO tbl_enquiry  VALUES ('$lol', '$name',
-            '$orgname','$mobile', '$remarks', '$serviceid')";
+        $sql = "INSERT INTO tbl_enquiry  VALUES ('$lol2', '$name',
+            '$orgname','$mobile', '$remarks', '$serviceid2')";
 
         if (mysqli_query($conn, $sql)) {
             header('Location: enquiry.php');
@@ -51,3 +58,5 @@
 </body>
 
 </html>
+
+        

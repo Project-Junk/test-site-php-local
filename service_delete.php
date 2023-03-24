@@ -12,9 +12,9 @@ if (!$conn) {
 }
 
 // sql to delete a record
-$sql = "DELETE FROM tbl_service WHERE service_type_id = $id";
-
-if (mysqli_query($conn, $sql)) {
+$sql = "DELETE FROM tbl_service WHERE service_type_id = $id;";
+$sql .="DELETE FROM tbl_enquiry WHERE service_type_id = $id";
+if (mysqli_multi_query($conn, $sql)) {
     mysqli_close($conn);
     header('Location: services.php'); //If book.php is your main page where you list your all records
     exit;
