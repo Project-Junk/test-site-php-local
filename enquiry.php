@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -23,7 +28,6 @@
                 <th>Mobile Number</th>
                 <th>Service ID</th>
                 <th>Remarks</th>
-
             </tr>
         </thead>
         <a style="margin-left:62%; margin-top:-110px;" class='btn btn-primary mb-4' href='enquiry_form.php'>Add Enquiry</a>
@@ -50,24 +54,54 @@
             if (!$result) {
                 die("Invalid query: " . $connection->error);
             }
-
+            $initialID=1;
             // read data of each row
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
-                    <td>" . $row["enquiryid"] . "</td>
+                    <td>" . $initialID . "</td>
                     <td>" . $row["enquiry_person"] . "</td>
                     <td>" . $row["org_name"] . "</td>
                     <td>" . $row["mobile_no"] . "</td>
                     <td>" . $row["service_type_id"] . "</td>
                     <td>" . $row["remarks"] . "</td>
                     <td>
-                        <a class='btn btn-primary btn-sm' href='#'>Update</a>
-                        <a class='btn btn-danger btn-sm' href='#'>Delete</a>
+                        <a href='enquiry_update_form.php?id=" . $row['enquiryid'] . "' class=' btn btn-primary btn-sm'>Update</a>
+                        <a href='enquiry_delete.php?id=" . $row['enquiryid'] . "' class='del-btn btn btn-danger btn-sm'>Delete</a>
                     </td>
                 </tr>";
+                $initialID++;
             }
+            ?>
+            <script>
+                $('.del-btn').on('click', function(e) {
+                    e.preventDefault();
+                    const href = $(this).attr('href')
+                    Swal.fire({
+                        title: 'Are you sure to delete?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.value) {
+                            document.location.href = href;
 
-            $connection->close();
+                        }
+                    })
+                })
+
+                const flashdata = $('.flash-data').data('flashdata')
+                if (flashdata) {
+                    swal.fire({
+                        type: 'success',
+                        title: 'Record Deleted',
+                        text: 'Record has been deleted'
+                    })
+                }
+            </script>
+            <?php $connection->close();
             ?>
         </tbody>
     </table>

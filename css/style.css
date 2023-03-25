@@ -1,6 +1,6 @@
 .header-blue {
-    background: linear-gradient(135deg, #172a74, #21a9af);
-    background-color: #184e8e;
+    background: linear-gradient(rgba(56, 56, 56, 0.87), rgb(0, 53, 46));
+    background-color: #1a1a1a;
     padding-bottom: 80px;
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -12,7 +12,7 @@
 }
 
 .header-blue .navbar {
-    background: transparent;
+    background: translucent;
     padding-top: .75rem;
     padding-bottom: .75rem;
     color: #fff;
@@ -208,7 +208,7 @@
     border: 1px solid #444;
     background-color: #aaa;
     overflow: hidden;
-    background: url(https://www.metamintindia.com/assets/userassets/images/logo/main_logo.svg);
+    background: url("resources/meta-temp.png");
     background-size: cover;
     background-position: center;
 }

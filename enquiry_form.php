@@ -48,7 +48,7 @@
                                         <div id="form-message-success" class="mb-4">
                                             Your enquiry has been sent, thank you!
                                         </div>
-                                        <form action="enquiry_submit.php" method="POST"  enctype=multipart/form-data>
+                                        <form action="enquiry_submit.php" method="POST" enctype=multipart/form-data>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -148,15 +148,15 @@
                                                 </div>
                                                 <div class="col-md-12 mb-6">
                                                     <div class="form-group col-md-12 mb-6">
-                                                    <label><strong>Long Description :</strong></label>
-                                        <textarea id='makeMeSummernote' name='long_desc' class="form-control"></textarea><br>
+                                                        <label><strong>Long Description :</strong></label>
+                                                        <textarea id='makeMeSummernote' name='long_desc' class="form-control"></textarea><br>
                                                     </div>
                                                     <div class="form-group col-md-12 mb-6">
-                                                    <input class="form-control" type="file" name="uploadfile" value="" />
+                                                        <input class="form-control" type="file" name="uploadfile" value="" />
                                                     </div>
 
-                                                
-  
+
+
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
@@ -215,11 +215,10 @@
     </section>
     <script type="text/javascript">
         $('#makeMeSummernote').summernote({
-            height:100,
+            height: 100,
         });
-
     </script>
-   
+
 
 </body>
 
