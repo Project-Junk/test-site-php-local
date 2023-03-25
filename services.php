@@ -67,7 +67,7 @@
                     <td>" . $row["service_type_name"] . "</td>
                     <td>
                        <label class='switch'>
-                        <input type='checkbox' class='slider' onclick=servicestatus(" . $row['service_type_id'] . ") id='" . $row['service_status'] . "' data-id='' " . $status . ">
+                        <input type='checkbox' class='slider' data-id='" . $row['service_type_id'] . "' " . $status . ">
                         <span class='slider round'></span>
                         </label>
                     </td>
@@ -87,21 +87,21 @@
 
             ?>
             <script>
-                function servicestatus(id) {
                 $(document).ready(function() {
-  $('input[type="checkbox"]').click(function() {
-    var toggled_on = $(this).prop('checked') ? 1 : 0;
-    var id = $(this).data('id');
-    $.ajax({
-      type: 'POST',
-      url: 'service_status.php',
-      data: {toggled_on: toggled_on, id: id},
-      success: function() {
-        location.reload();
-      }
-    });
-  });
-})};
+                    $('.slider').click(function() {
+                        var id = $(this).data('id');
+                        $.ajax({
+                            type: 'POST',
+                            url: 'service_status.php',
+                            data: {
+                                id: id
+                            },
+                            success: function() {
+                                location.reload();
+                            }
+                        });
+                    });
+                });
             </script>
             <?php $connection->close();
             ?>

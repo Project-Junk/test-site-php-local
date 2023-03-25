@@ -10,7 +10,7 @@ if (!$conn) {
 
 else {
     if (isset($_POST['id'])) {
-        $id = $_POST['id'];
+        $id = $_REQUEST['id'];
         $sql = "Select service_status from tbl_service where service_type_id = $id";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
