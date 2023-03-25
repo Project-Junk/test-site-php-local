@@ -27,7 +27,7 @@
 
         <thead>
             <tr>
-                <th>Service ID</th>
+                <th>ID</th>
                 <th>Service Name</th>
                 <th>status</th>
                 <th>priority</th>
@@ -57,13 +57,14 @@
             if (!$result) {
                 die("Invalid query: " . $connection->error);
             }
-
+            $initialID = 1;
             // read data of each row
             while ($row = $result->fetch_assoc()) {
+
                 $status = ($row['service_status'] == 1) ? 'checked' : '';
                 echo "<tr>
 
-                    <td>" . $row["service_type_id"] . "</td>
+                    <td>" . $initialID . "</td>
                     <td>" . $row["service_type_name"] . "</td>
                     <td>
                        <label class='switch'>
@@ -79,6 +80,7 @@
                     </td>
 
                 </tr>";
+                $initialID++;
             }
 
 
@@ -102,6 +104,35 @@
                         });
                     });
                 });
+            </script>
+            <script>
+                $('.del-btn').on('click', function(e) {
+                    e.preventDefault();
+                    const href = $(this).attr('href')
+                    Swal.fire({
+                        title: 'Are you sure to delete?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.value) {
+                            document.location.href = href;
+
+                        }
+                    })
+                })
+
+                const flashdata = $('.flash-data').data('flashdata')
+                if (flashdata) {
+                    swal.fire({
+                        type: 'success',
+                        title: 'Record Deleted',
+                        text: 'Record has been deleted'
+                    })
+                }
             </script>
             <?php $connection->close();
             ?>

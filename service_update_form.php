@@ -1,3 +1,17 @@
+<?php
+
+$id = $_REQUEST['id'];
+
+$hostName = "localhost";
+$userName = "root";
+$password = "";
+$databaseName = "enquiryproj";
+$conn = new mysqli($hostName, $userName, $password, $databaseName);
+$result = mysqli_query($conn, "SELECT * FROM tbl_service WHERE service_type_id = $id");
+$row = mysqli_fetch_array($result);
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -47,7 +61,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="label" for="subject">Service Name</label>
-                                                    <input type="text" class="form-control" name="service_type_name" id="service_type_name" placeholder="Enter Service Name">
+                                                    <input type="text" class="form-control" name="service_type_name" id="service_type_name" placeholder="Enter Service Name" value="<?php echo $row['service_type_name']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -56,7 +70,7 @@
 
                                                         <label class="form-check-label ml-3 pd-5" for="priority"> Service Priority</label>
                                                         <div class="form-check form-check-inline ">
-                                                            <input class="form-control ml-3 " type="number" name="priority" id="priority" value="">
+                                                            <input class="form-control ml-3 " type="number" name="priority" id="priority" value="<?php echo $row['priority']; ?>">
                                                             <label class="form-check-label" for="priority"></label>
 
                                                         </div>
@@ -127,5 +141,6 @@
         </div>
     </section>
 </body>
+<?php $conn->close();; ?>
 
 </html>
