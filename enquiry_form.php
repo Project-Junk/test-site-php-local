@@ -37,7 +37,7 @@
                         <input type="submit" value="Go Back " class="btn btn-primary ml-auto" style="padding-bottom:5px; padding-top:5px; padding-left:5px; padding-right:5px; ">
                     </div>
                 </form>
-                <form action="enquiry_submit.php" method="post">
+                <form action="enquiry_submit.php" method="post" enctype=multipart/form-data>
                     <div class="col-md-12">
                         <div class="wrapper">
                             <div class="row no-gutters">
@@ -48,7 +48,7 @@
                                         <div id="form-message-success" class="mb-4">
                                             Your enquiry has been sent, thank you!
                                         </div>
-                                        <form action="enquiry_submit.php" method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                        <form action="enquiry_submit.php" method="POST"  enctype=multipart/form-data>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -146,19 +146,17 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 mt-4">
-                                                    <div class="form-group col-md-12">
-                                                        <div id="summernote"></div>
-                                                        <script>
-                                                            $('#summernote').summernote({
-                                                                placeholder: '',
-                                                                tabsize: 1,
-                                                                height: 150
-                                                            });
-                                                        </script>
-
+                                                <div class="col-md-12 mb-6">
+                                                    <div class="form-group col-md-12 mb-6">
+                                                    <label><strong>Long Description :</strong></label>
+                                        <textarea id='makeMeSummernote' name='long_desc' class="form-control"></textarea><br>
+                                                    </div>
+                                                    <div class="form-group col-md-12 mb-6">
+                                                    <input class="form-control" type="file" name="uploadfile" value="" />
                                                     </div>
 
+                                                
+  
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
@@ -215,12 +213,13 @@
         </div>
         </div>
     </section>
+    <script type="text/javascript">
+        $('#makeMeSummernote').summernote({
+            height:100,
+        });
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/main.js"></script>
+    </script>
+   
 
 </body>
 

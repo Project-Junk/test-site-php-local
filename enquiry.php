@@ -21,13 +21,13 @@
                 <th>Enquiry Person</th>
                 <th>Organisation</th>
                 <th>Mobile Number</th>
-                <th>Remarks</th>
                 <th>Service ID</th>
+                <th>Remarks</th>
 
             </tr>
         </thead>
         <a style="margin-left:62%; margin-top:-110px;" class='btn btn-primary mb-4' href='enquiry_form.php'>Add Enquiry</a>
-        <a style="margin-left:71%; margin-top:-158px; background-color:#04aa6d; border-color:#04aa6d;" class='btn btn-primary mb-4' href='index.php'>Go Back</a>
+        <a style="margin-left:71%; margin-top:-158px; background-color:#04aa6d; border-color:#04aa6d;" class=' btn btn-primary mb-4' href='index.php'>Go Back</a>
         <tbody>
             <?php
             $servername = "localhost";
@@ -58,8 +58,8 @@
                     <td>" . $row["enquiry_person"] . "</td>
                     <td>" . $row["org_name"] . "</td>
                     <td>" . $row["mobile_no"] . "</td>
-                    <td>" . $row["remarks"] . "</td>
                     <td>" . $row["service_type_id"] . "</td>
+                    <td>" . $row["remarks"] . "</td>
                     <td>
                         <a class='btn btn-primary btn-sm' href='#'>Update</a>
                         <a class='btn btn-danger btn-sm' href='#'>Delete</a>

@@ -17,7 +17,7 @@
 </head>
 
 <h1>Services Available </h1>
-<a style="margin-left:62%; margin-top:-70px;" class='btn btn-primary mb-4' href='service_form.php'>Add Service</a>
+<a style="margin-left:62%; margin-top:-72px;" class='btn btn-primary mb-4' href='service_form.php'>Add Service </a>
 <a style="margin-left:70%; margin-top:-119px; background-color:#04aa6d; border-color:#04aa6d;" class='btn btn-primary mb-4' href='index.php'> <i class="fa fa-home"> Back</i></a>
 
 
@@ -88,55 +88,20 @@
             ?>
             <script>
                 function servicestatus(id) {
-                    $.ajax({
-                        type: "POST",
-                        url: "service_status.php",
-                        data: {
-                            id: id,
-
-                        },
-                        success: function(data) {
-                            console.log(data)
-                        }
-                    });
-                }
                 $(document).ready(function() {
-                    $('.slider').click(function() {
-                        var id = $(this).attr('id');
-                        var serviceid = $(this).attr('serviceid');
-                        servicestatus(id, serviceid);
-                    });
-                });
-            </script>
-
-            <script>
-                $('.del-btn').on('click', function(e) {
-                    e.preventDefault();
-                    const href = $(this).attr('href')
-                    Swal.fire({
-                        title: 'Are you sure to delete?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.value) {
-                            document.location.href = href;
-
-                        }
-                    })
-                })
-
-                const flashdata = $('.flash-data').data('flashdata')
-                if (flashdata) {
-                    swal.fire({
-                        type: 'success',
-                        title: 'Record Deleted',
-                        text: 'Record has been deleted'
-                    })
-                }
+  $('input[type="checkbox"]').click(function() {
+    var toggled_on = $(this).prop('checked') ? 1 : 0;
+    var id = $(this).data('id');
+    $.ajax({
+      type: 'POST',
+      url: 'service_status.php',
+      data: {toggled_on: toggled_on, id: id},
+      success: function() {
+        location.reload();
+      }
+    });
+  });
+})};
             </script>
             <?php $connection->close();
             ?>

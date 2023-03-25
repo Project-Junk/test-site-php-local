@@ -31,7 +31,7 @@
         $name =  $_REQUEST['enquiry_person'];
         $orgname =  $_REQUEST['org_name'];
         $mobile = $_REQUEST['mobile_no'];
-        $remarks = $_REQUEST['remarks'];
+        $remarks = $_REQUEST['long_desc'];
         $servicename= $_REQUEST['service_type_name'];
         $serviceid = $conn -> query("SELECT service_type_id FROM tbl_service WHERE service_type_name ='$servicename' ");
         
@@ -42,7 +42,7 @@
           }
 
         $sql = "INSERT INTO tbl_enquiry  VALUES ('$lol2', '$name',
-            '$orgname','$mobile', '$remarks', '$serviceid2')";
+            '$orgname','$mobile', '$serviceid2', '$remarks')";
 
         if (mysqli_query($conn, $sql)) {
             header('Location: enquiry.php');
