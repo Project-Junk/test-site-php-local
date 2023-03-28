@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Insert Page</title>
-</head>
-
-<body>
-    <center>
-     
-<?php 
-
+<?php
+include 'dbConfig.php';
 $statusMsg = '';
-$db = new mysqli("localhost", "root", "", "enquiryproj");
+
 if(isset($_POST['submit'])){
-
-
-
 	// File upload configuration
-    $targetDir = "test/uploads/";
+    $targetDir = "uploads/";
     $allowTypes = array('jpg','png','jpeg','gif');
 	
 	$images_arr = array();
@@ -55,16 +42,7 @@ if(isset($_POST['submit'])){
 			$statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
 		}
 	}
-	var_dump($_FILES['images']['name']);
+	
 
 }
-
-
 ?>
-
-    </center>
-</body>
-
-</html>
-
-        

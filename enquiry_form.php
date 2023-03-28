@@ -152,7 +152,15 @@
                                                         <textarea id='makeMeSummernote' name='long_desc' class="form-control"></textarea><br>
                                                     </div>
                                                     <div class="form-group col-md-12 mb-6">
-                                                        <input class="form-control" type="file" name="uploadfile" value="" />
+                                                   
+                                                    
+                                                    
+				
+				
+					<input type="file" name="images[]" class="form__field__img" multiple>
+					
+				
+			
                                                     </div>
 
 
@@ -160,7 +168,7 @@
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <input type="submit" value="Submit" class="btn btn-primary">
+                                                        <input type="submit" name="submit" value="Submit" class="btn btn-primary">
                                                         <div class="submitting"></div>
                                                     </div>
                                         </form>
