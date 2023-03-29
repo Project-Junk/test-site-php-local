@@ -12,11 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 
-<body style="margin: 50px;">
+<body style="margin: 10px;">
     <h1>Available Enquiries</h1>
     <br>
     <table class="table">
@@ -27,11 +27,13 @@
                 <th>Organisation</th>
                 <th>Mobile Number</th>
                 <th>Service ID</th>
-                <th>Remarks</th>
+
+                <th style="padding:14px;" class="pb-2"><?php echo " Details" ?></th>
             </tr>
+
         </thead>
-        <a style="margin-left:62%; margin-top:-110px;" class='btn btn-primary mb-4' href='enquiry_form.php'>Add Enquiry</a>
-        <a style="margin-left:71%; margin-top:-158px; background-color:#04aa6d; border-color:#04aa6d;" class=' btn btn-primary mb-4' href='index.php'>Go Back</a>
+        <a style="margin-left:60%; margin-top:-110px; border-radius:20px" class='btn btn-primary mb-4' href='enquiry_form.php'><i class="fa-solid fa-circle-plus"></i> Add Enquiry</a>
+        <a style="margin-left:71%; margin-top:-158px; background-color:#04aa6d; border-color:#04aa6d; border-radius:20px;" class=' btn btn-primary mb-4' href='index.php'> <i class="fa-sharp fa-solid fa-circle-arrow-left"></i> Back</a>
         <tbody>
             <?php
             $servername = "localhost";
@@ -54,7 +56,7 @@
             if (!$result) {
                 die("Invalid query: " . $connection->error);
             }
-            $initialID=1;
+            $initialID = 1;
             // read data of each row
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>
@@ -63,10 +65,13 @@
                     <td>" . $row["org_name"] . "</td>
                     <td>" . $row["mobile_no"] . "</td>
                     <td>" . $row["service_type_id"] . "</td>
-                    <td>" . $row["remarks"] . "</td>
+
+                    <td>  <a href='enquiry_view.php?id=" . $row['enquiryid'] . "' class=' btn btn-primary btn-sm'><i class='fa-sharp fa-solid fa-mountain-sun'> </i> view</a>
+                    </td>
+
                     <td>
-                        <a href='enquiry_update_form.php?id=" . $row['enquiryid'] . "' class=' btn btn-primary btn-sm'>Update</a>
-                        <a href='enquiry_delete.php?id=" . $row['enquiryid'] . "' class='del-btn btn btn-danger btn-sm'>Delete</a>
+                        <a href='enquiry_update_form.php?id=" . $row['enquiryid'] . "' class=' btn btn-primary btn-sm'><i class='fa-solid fa-pen-to-square'></i> Update</a>
+                        <a href='enquiry_delete.php?id=" . $row['enquiryid'] . "' class='del-btn btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i> Delete</a>
                     </td>
                 </tr>";
                 $initialID++;

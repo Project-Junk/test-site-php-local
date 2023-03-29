@@ -12,16 +12,16 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 
 <h1>Services Available </h1>
-<a style="margin-left:62%; margin-top:-72px;" class='btn btn-primary mb-4' href='service_form.php'>Add Service </a>
-<a style="margin-left:70%; margin-top:-119px; background-color:#04aa6d; border-color:#04aa6d;" class='btn btn-primary mb-4' href='index.php'> <i class="fa fa-home"> Back</i></a>
+<a style="margin-left:60%; margin-top:-72px; border-radius:25px" class='btn btn-primary mb-4' href='service_form.php'><i class="fa-solid fa-circle-plus"></i> Add Service </a>
+<a style="margin-left:70%; margin-top:-119px; background-color:#04aa6d; border-color:#04aa6d; border-radius:25px" class='btn btn-primary mb-4' href='index.php'> <i class="fa-sharp fa-solid fa-circle-arrow-left"></i> Back</a>
 
 
-<body style="margin: 10px; ">
+<body style="margin: 50px; padding:auto; ">
     <br>
     <table class="table">
 
@@ -74,8 +74,8 @@
                     </td>
                     <td>" . $row["priority"] . "</td>
                   <td>
-                        <a href='service_update_form.php?id=" . $row['service_type_id'] . "' class=' btn btn-primary btn-sm'>Update</a>
-                        <a href='service_delete.php?id=" . $row['service_type_id'] . "' class='del-btn btn btn-danger btn-sm'>Delete</a>
+                        <a  href='service_update_form.php?id=" . $row['service_type_id'] . "' class=' btn btn-primary btn-sm'><i class='fa-solid fa-pen-to-square'></i> Update</a>
+                        <a  href='service_delete.php?id=" . $row['service_type_id'] . "' class='del-btn btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i> Delete</a>
 
                     </td>
 

@@ -19,6 +19,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -32,11 +33,11 @@
                 </div>
             </div>
             <div class="row justify-content-center" style="margin-top:-140px;">
-                <form action="enquiry.php" class="ml-auto">
-                    <div class="row justify-content-center ml-auto">
-                        <input type="submit" value="Go Back " class="btn btn-primary ml-auto" style="padding-bottom:5px; padding-top:5px; padding-left:5px; padding-right:5px; ">
-                    </div>
-                </form>
+
+                <div class="row justify-content-center ml-auto">
+                    <a style="margin-left:-70%; background-color:#04aa6d; border-color:#04aa6d;" class='btn btn-primary mb-4 ' href='enquiry.php'> <i class="fa-sharp fa-solid fa-circle-arrow-left"></i> Back</a>
+                </div>
+
                 <form action="enquiry_submit.php" method="post" enctype=multipart/form-data>
                     <div class="col-md-12">
                         <div class="wrapper">
@@ -152,15 +153,15 @@
                                                         <textarea id='makeMeSummernote' name='long_desc' class="form-control"></textarea><br>
                                                     </div>
                                                     <div class="form-group col-md-12 mb-6">
-                                                   
-                                                    
-                                                    
-				
-				
-					<input type="file" name="images[]" class="form__field__img" multiple>
-					
-				
-			
+
+
+
+
+
+                                                        <input type="file" name="images[]" class="form__field__img" multiple>
+
+
+
                                                     </div>
 
 
