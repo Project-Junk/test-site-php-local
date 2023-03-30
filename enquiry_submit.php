@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-	<title>Insert Page</title>
-</head>
-
-<body>
-	<center>
 
 		<?php
 		$conn = mysqli_connect("localhost", "root", "", "enquiryproj");
@@ -14,7 +6,7 @@
 		while ($row = $lol->fetch_assoc()) {
 			$lol2 = $row['COUNT(enquiryid)'] . "<br>";
 		}
-		$lol2++;
+		$lol3 = $lol2 + 1;
 		$name =  $_REQUEST['enquiry_person'];
 		$orgname =  $_REQUEST['org_name'];
 		$mobile = $_REQUEST['mobile_no'];
@@ -31,8 +23,7 @@
 		//     '$orgname','$mobile', '$serviceid2', '$remarks', '')";
 
 		$statusMsg = '';
-		$db = new mysqli("localhost", "root", "", "enquiryproj");
-		if (isset($_POST['submit'])) {
+		if (isset($_REQUEST['submit'])) {
 
 
 
@@ -58,22 +49,25 @@
 					// Store images on the server
 					if (move_uploaded_file($_FILES['images']['tmp_name'][$key], $targetFilePath)) {
 						$images_arr[] = $targetFilePath;
-
-						$insert = $db->query("INSERT into tbl_enquiry (enquiryid, enquiry_person, org_name, mobile_no, service_type_id, remarks, file_name) VALUES ('$lol2', '$name',
-            '$orgname','$mobile', '$serviceid2', '$remarks', '" . $targetFilePath . "') ");
 					}
 				}
 			}
-
-
-			header('Location: enquiry.php');
 		}
+		$sql = $conn->query("INSERT into tbl_enquiry (enquiryid, enquiry_person, org_name, mobile_no, service_type_id, remarks, file_name) VALUES ('$lol3', '$name',
+            '$orgname','$mobile', '$serviceid2', '$remarks','" . $targetFilePath . "') ");
+
+		if ($sql) {
+			header('Location: enquiry.php');
+		} else {
+			echo "ERROR: Hush! Sorry $sql. "
+				. mysqli_error($conn);
+		}
+
+
+
+
 
 
 		?>
 
-	</center>
-</body>
 
-</html>
-$insert = $db->query("INSERT into tbl_enquiry (file_name) VALUES ('" . $targetFilePath . "') ");

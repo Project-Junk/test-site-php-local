@@ -1,6 +1,5 @@
-
-
 <?php
+
 $id = $_GET['id'];
 // define database credentials
 $host = 'localhost';
@@ -19,7 +18,13 @@ if (!$conn) {
 // define SQL query to fetch image and description
 $query = $conn->query("SELECT * FROM tbl_enquiry WHERE enquiryid = $id");
 
+$sql = "SELECT * FROM tbl_service  ORDER BY priority ASC";
+$result = $conn->query($sql);
 
+while ($row = $result->fetch_assoc()) {
+    $serviceName = $row["service_type_name"];
+    $servicePriority = $row["priority"];
+}
 while ($row = $query->fetch_assoc()) {
 
 
@@ -28,53 +33,51 @@ while ($row = $query->fetch_assoc()) {
     $description = $row['remarks'];
 
     echo '
-    <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title> ' . $row["enquiry_person"] . '</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles3.css" rel="stylesheet" />
-</head
- <body>
-    <!-- Navigation-->
 
-    <!-- Product section-->
-    <section class="py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" style="border:2px #d4d4d4; border-radius:25px ;"
-                        src="' . $image . '" alt="..." /></div>
-                <div class="col-md-6">
+<html lang="en">
+<head>
+<meta charset="utf-8">
 
-                    <h1 class="display-5 fw-bolder">' . $row["enquiry_person"] . '</h1>
-                    <div class="fs-5 mb-5">
 
-                        <span>' . $row["enquiry_person"] . '</span>
-                    </div>
-                    <p class="lead">' . $row["remarks"] . '</p>
-                    <div class="d-flex">
-                        <a  style="border-radius:25px;" class="btn btn-outline-dark flex-shrink-0" href="enquiry.php"> <i class="fa-sharp fa-solid fa-circle-arrow-left"></i> Back</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Related items section-->
+<title>enquiry details</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/styles3.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<div class="container">
+<div class="row">
+<div class="col-md-5 ">
+<div class="project-info-box mt-0">
+<h5>ENQUIRY DETAILS</h5>
+<p class="mb-0">' . $description . '</p>
 
-    <!-- Footer-->
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
+</div>
+<div class="project-info-box">
+<p><b>Client: </b>' . $row["enquiry_person"] . '</p>
+<p><b>Date:</b> 14.02.2020</p>
+<p><b>Organisation: </b> ' . $row["org_name"] . '</p>
+<p><b>Contact: </b> ' . $row["mobile_no"] . '</p>
+<p><b>Service: </b> ' . $serviceName . '</p>
+
+</div>
+
+</div>
+<div class="col-md-7">
+<img src="' . $image . '" alt="project-image" class="rounded">
+
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+</script>
 </body>
+</html>
+
 
 
     ';
 }
-?>
