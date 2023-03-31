@@ -14,16 +14,18 @@ $conn = mysqli_connect($host, $username, $password, $dbname);
 if (!$conn) {
     die('Connection failed: ' . mysqli_connect_error());
 }
+$query1 = $conn->query("SELECT * FROM tbl_enquiry WHERE enquiryid = $id");
+while ($row = $query1->fetch_assoc()) {
+    $serviceID = $row['service_type_id'];
+}
 
-// define SQL query to fetch image and description
 $query = $conn->query("SELECT * FROM tbl_enquiry WHERE enquiryid = $id");
 
-$sql = "SELECT * FROM tbl_service  ORDER BY priority ASC";
+$sql = "SELECT service_type_name FROM tbl_service WHERE service_type_id=$serviceID";
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_assoc()) {
     $serviceName = $row["service_type_name"];
-    $servicePriority = $row["priority"];
 }
 while ($row = $query->fetch_assoc()) {
 

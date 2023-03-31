@@ -1,50 +1,33 @@
-<!DOCTYPE html>
-<html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <div>
-        <div class="header-blue">
-            <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-                <div class="container"><a class="navbar-brand" href="#">Meta Mint</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navcol-1">
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item" role="presentation"><a class="nav-link active" href="enquiry.php">Enquiry</a></li>
+<nav class="navbar navbar-expand-lg fixed-top navbar-scroll shadow-0" style="background-color: #D8DEE9;">
+    <div class="container">
+        <a class="navbar-brand" style="color:#3B4252; " href="#">MetaMint</a>
+        <button class="navbar-toggler ps-0" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01" aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="d-flex justify-content-start align-items-center">
+                <i class="fas fa-bars"></i>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarExample01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link px-3" style="color:#3B4252;" href="enquiry.php">enquiry</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3" style="color:#3B4252;" href="services.php">services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3" style="color:#3B4252;" href="#!">about us</a>
+                </li>
 
-                            <li class="nav-item" role="presentation"><a class="nav-link active" href="services.php">Service Types</a></li>
-                        </ul>
 
-                    </div>
-
-                    <div class="device"><img src="https://www.metamintindia.com/assets/userassets/images/logo/main_logo.svg" class="device">
+            </ul>
 
 
-                    </div>
-                </div>
-            </nav>
-            <div class="container hero">
-                <div class="row">
-                    <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
-                        <h1 class="enq">Welcome to Meta Mint Enquiry System.</h1>
-                        <p>Here you will be able to enquiry about the services that are pending and you can then assign actions as per the pending enquiry. </p><button class="btn btn-light btn-lg action-button" type="button">Learn More</button>
-                    </div>
-
-                </div>
-            </div>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+</nav>

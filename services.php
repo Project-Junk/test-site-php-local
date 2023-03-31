@@ -15,14 +15,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
+<?php include 'index.php' ?>
+<h1 style="padding-top:5%; font-size:20px;">Services Available </h1>
 
-<h1>Services Available </h1>
-<a style="margin-left:60%; margin-top:-72px; border-radius:25px" class='btn btn-primary mb-4' href='service_form.php'><i class="fa-solid fa-circle-plus"></i> Add Service </a>
-<a style="margin-left:70%; margin-top:-119px; background-color:#04aa6d; border-color:#04aa6d; border-radius:25px" class='btn btn-primary mb-4' href='index.php'> <i class="fa-sharp fa-solid fa-circle-arrow-left"></i> Back</a>
 
 
 <body style="margin: 50px; padding:auto; ">
-    <br>
+
     <table class="table">
 
         <thead>
@@ -31,6 +30,9 @@
                 <th>Service Name</th>
                 <th>status</th>
                 <th>priority</th>
+                <th><a style="border-radius:15px; font-size:13px; padding: 4px 5px; background-color:#81A1C1; border-color:#81A1C1;" class='btn btn-primary mb-4' href='service_form.php'><i class="fa-solid fa-plus"></i> Add Service </a>
+                    <a style="padding: 4px 5px; font-size:13px; background-color:#A3BE8C; border-color:#A3BE8C;margin-left:1%; border-radius:15px" class='btn btn-primary mb-4' href='index.php'> <i class="fa-sharp fa-solid fa-circle-arrow-left"></i> Back</a>
+                </th>
 
             </tr>
         </thead>
@@ -68,14 +70,14 @@
                     <td>" . $row["service_type_name"] . "</td>
                     <td>
                        <label class='switch'>
-                        <input type='checkbox' class='slider' data-id='" . $row['service_type_id'] . "' " . $status . ">
-                        <span class='slider round'></span>
+                        <input type='checkbox'  class='slider' data-id='" . $row['service_type_id'] . "' " . $status . ">
+                        <span class='slider round' style='background-color:#5E81AC;'></span>
                         </label>
                     </td>
                     <td>" . $row["priority"] . "</td>
                   <td>
-                        <a  href='service_update_form.php?id=" . $row['service_type_id'] . "' class=' btn btn-primary btn-sm'><i class='fa-solid fa-pen-to-square'></i> Update</a>
-                        <a  href='service_delete.php?id=" . $row['service_type_id'] . "' class='del-btn btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i> Delete</a>
+                        <a  href='service_update_form.php?id=" . $row['service_type_id'] . "' class=' btn btn-primary btn-sm' style='background-color:#EBCB8B; border-color:#ebcb8b'><i class='fa-solid fa-pen-to-square'></i> Update</a>
+                        <a  href='service_delete.php?id=" . $row['service_type_id'] . "' class='del-btn btn btn-danger btn-sm' style='background-color:#BF616A;border-color:#bf616a;'><i class='fa-solid fa-trash'></i> Delete</a>
 
                     </td>
 
@@ -114,8 +116,8 @@
                         text: "You won't be able to revert this!",
                         icon: 'warning',
                         showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
+                        confirmButtonColor: '#81A1C1',
+                        cancelButtonColor: '#D08770',
                         confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         if (result.value) {
@@ -141,5 +143,6 @@
 
 </body>
 <!-- <button type="button" class="btn btn-primary" onclick="window.location.href='service_form.php';">Add Service</button> -->
+<?php include 'resources/footer.php' ?>
 
 </html>

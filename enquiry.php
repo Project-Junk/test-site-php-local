@@ -16,9 +16,11 @@
 
 </head>
 
+<?php include 'index.php' ?>
+
 <body style="margin: 10px;">
-    <h1>Available Enquiries</h1>
-    <br>
+    <h1 style="padding-top:8%; font-size:20px;">Available Enquiries</h1>
+
     <table class="table">
         <thead>
             <tr>
@@ -29,11 +31,18 @@
                 <th>Service ID</th>
 
                 <th style="padding:14px;" class="pb-2"><?php echo " Details" ?></th>
+
+                <th> <a style="background-color:#A3BE8C
+; font-size:12px; border-color:#A3BE8C
+; border-radius:15px; padding:  4px 3px;margin-left:5%  " display="flex" class=' btn btn-primary mb-4' href='index.php'> <i class="fa-sharp fa-solid fa-circle-arrow-left"></i> Back</a>
+                    <a style=" background-color:#81A1C1;border-color:#81A1C1; border-radius:15px;font-size:12px; padding: 4px 3px; " class='btn btn-primary mb-4' href='enquiry_form.php'><i class="fa-solid fa-plus"></i> Add Enquiry</a>
+                </th>
+
             </tr>
 
         </thead>
-        <a style="margin-left:60%; margin-top:-110px; border-radius:20px" class='btn btn-primary mb-4' href='enquiry_form.php'><i class="fa-solid fa-circle-plus"></i> Add Enquiry</a>
-        <a style="margin-left:71%; margin-top:-158px; background-color:#04aa6d; border-color:#04aa6d; border-radius:20px;" class=' btn btn-primary mb-4' href='index.php'> <i class="fa-sharp fa-solid fa-circle-arrow-left"></i> Back</a>
+
+
         <tbody>
             <?php
             $servername = "localhost";
@@ -66,12 +75,12 @@
                     <td>" . $row["mobile_no"] . "</td>
                     <td>" . $row["service_type_id"] . "</td>
 
-                    <td>  <a href='enquiry_view.php?id=" . $row['enquiryid'] . "' class=' btn btn-primary btn-sm'><i class='fa-sharp fa-solid fa-mountain-sun'> </i> view</a>
+                    <td>  <a href='enquiry_view.php?id=" . $row['enquiryid'] . "' class=' btn btn-primary btn-sm'  style='background-color:#88C0D0; border-color:#88c0D0'><i class='fa-sharp fa-solid fa-mountain-sun'> </i> view</a>
                     </td>
 
                     <td>
-                        <a href='enquiry_update_form.php?id=" . $row['enquiryid'] . "' class=' btn btn-primary btn-sm'><i class='fa-solid fa-pen-to-square'></i> Update</a>
-                        <a href='enquiry_delete.php?id=" . $row['enquiryid'] . "' class='del-btn btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i> Delete</a>
+                        <a href='enquiry_update_form.php?id=" . $row['enquiryid'] . "' class=' btn  btn-sm' style='background-color:#EBCB8B; color:#ffffff;'><i class='fa-solid fa-pen-to-square'></i> Update</a>
+                        <a href='enquiry_delete.php?id=" . $row['enquiryid'] . "' class='del-btn btn btn-danger btn-sm' style='background-color:#BF616A;'><i class='fa-solid fa-trash'></i> Delete</a>
                     </td>
                 </tr>";
                 $initialID++;
@@ -86,8 +95,8 @@
                         text: "You won't be able to revert this!",
                         icon: 'warning',
                         showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
+                        confirmButtonColor: '#81A1C1',
+                        cancelButtonColor: '#D08770',
                         confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         if (result.value) {
@@ -111,5 +120,6 @@
         </tbody>
     </table>
 </body>
+<?php include 'resources/footer.php' ?>
 
 </html>
